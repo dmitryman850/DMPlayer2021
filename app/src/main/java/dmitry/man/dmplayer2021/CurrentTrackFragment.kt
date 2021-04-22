@@ -1,4 +1,6 @@
 package dmitry.man.dmplayer2021
 
-class CurrentTrackFragment {
+import androidx.fragment.app.Fragment
+
+class CurrentTrackFragment: Fragment() {
 }

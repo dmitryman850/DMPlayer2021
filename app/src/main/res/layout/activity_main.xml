@@ -1,18 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edit_txt_email_main_activity"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true"
+        android:hint="@string/hint_enter_email_main_activity"
+        android:inputType="textEmailAddress"
+        android:lines="1"
+        android:textColor="@color/text_main_activity"
+        android:textColorHint="@color/hint_enter_text_main_activity" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/edit_txt_password_main_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_txt_email_main_activity"
+        android:hint="@string/hint_enter_password_main_activity"
+        android:lines="1"
+        android:textColor="@color/text_main_activity"
+        android:textColorHint="@color/hint_enter_text_main_activity" />
+
+    <View
+        android:id="@+id/strut_main_activity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/edit_txt_password_main_activity"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_registration_main_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_txt_password_main_activity"
+        android:layout_alignEnd="@id/strut_main_activity"
+        android:layout_alignParentStart="true"
+        android:text="@string/btn_registration_main_activity"
+        android:textSize="16sp"
+        android:layout_marginEnd="10dp"/>
+
+    <Button
+        android:id="@+id/btn_login_main_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_txt_password_main_activity"
+        android:layout_alignStart="@id/strut_main_activity"
+        android:layout_alignParentEnd="true"
+        android:text="@string/btn_login_main_activity"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"/>
+
+</RelativeLayout>
