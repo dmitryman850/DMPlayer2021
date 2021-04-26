@@ -8,6 +8,15 @@
     <string name="btn_login_main_activity">Войти</string>
     <!-- MainActivity screen -->
 
+    <!-- BottomNavigation screen -->
+    <string name="bottom_navigation_list_tracks">Список</string>
+    <string name="bottom_navigation_current_track">Текущий</string>
+    <string name="bottom_navigation_favorite_tracks">Любимые</string>
+    <string name="bottom_navigation_settings">Настойки</string>
+    <!-- BottomNavigation screen -->
+
+
+
     <!-- CurrentTrackFragment screen -->
     <string name="hyphen_current_track">-</string>
     <!-- CurrentTrackFragment screen -->
