@@ -8,6 +8,11 @@ sealed class RegistrationResult {
 
         class EmailName : Error()
 
-        class Password : Error()
+        sealed class PasswordError : Error() {
+
+            class MinSix : PasswordError()
+
+            class Empty : PasswordError()
+        }
     }
 }

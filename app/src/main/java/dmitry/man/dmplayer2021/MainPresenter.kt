@@ -26,16 +26,16 @@ class MainPresenter(
 
     fun login(emailName: String, password: String) {
         presenterScope.launch {
-            //mainView?.setLoading(loading = true)
+            mainView?.setLoading(loading = true)
 
             val loginResult = interactor.login(emailName = emailName, password = password)
-            when(loginResult) {
+            when (loginResult) {
                 is LoginResult.Error.EmailName -> mainView?.showEmailError()
-                is LoginResult.Error.Password -> mainView?.showPasswordError()
-                is LoginResult.Success -> mainView?.showSuccess()
+                is LoginResult.Error.PasswordError.Empty -> mainView?.showPasswordEmptyError()
+                is LoginResult.Error.PasswordError.MinSix -> mainView?.showPasswordMinError()
+                is LoginResult.Success -> mainView?.showSuccessLogin()
             }
-
-            //mainView?.setLoading(loading =  true)
+            mainView?.setLoading(loading = false)
         }
     }
 
@@ -43,13 +43,15 @@ class MainPresenter(
         presenterScope.launch {
             mainView?.setLoading(loading = true)
 
-            val registrationResult = interactor.registration(emailName = emailName, password = password)
-            when(registrationResult) {
+            val registrationResult =
+                interactor.registration(emailName = emailName, password = password)
+            when (registrationResult) {
                 is RegistrationResult.Error.EmailName -> mainView?.showEmailError()
-                is RegistrationResult.Error.Password -> mainView?.showEmailError()
-                is RegistrationResult.Success -> mainView?.showSuccess()
+                is RegistrationResult.Error.PasswordError.Empty -> mainView?.showPasswordEmptyError()
+                is RegistrationResult.Error.PasswordError.MinSix -> mainView?.showPasswordMinError()
+                is RegistrationResult.Success -> mainView?.showSuccessRegistration()
             }
-           // mainView?.setLoading(loading = true)
+            mainView?.setLoading(loading = false)
         }
     }
 }

@@ -1,10 +1,12 @@
 package dmitry.man.dmplayer2021
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import kotlinx.coroutines.Dispatchers
 
 class MainActivity : AppCompatActivity(), MainView {
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity(), MainView {
     private var passwordInput: EditText? = null
     private var btnLogin: Button? = null
     private var btnRegistration: Button? = null
+    private var progressBarAuth: View? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun onDestroy() {
         mainPresenter.detachView()
+        mainPresenter.onDestroy()
         // нужно ли тут прописывать:
 //            emailNameInput = null или это только в фрагментах
         super.onDestroy()
@@ -39,6 +43,7 @@ class MainActivity : AppCompatActivity(), MainView {
         passwordInput = findViewById(R.id.edit_txt_password_main_activity)
         btnLogin = findViewById(R.id.btn_login_main_activity)
         btnRegistration = findViewById(R.id.btn_registration_main_activity)
+        progressBarAuth = findViewById(R.id.progress_bar_main_activity)
     }
 
     private fun setUpListeners() {
@@ -63,18 +68,34 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun setLoading(loading: Boolean) {
-        TODO("Not yet implemented")
+        btnRegistration?.isEnabled = !loading
+        btnLogin?.isEnabled = !loading
+        progressBarAuth?.isVisible = loading
+        emailNameInput?.isEnabled = !loading
+        passwordInput?.isEnabled = !loading
     }
 
     override fun showEmailError() {
-        Toast.makeText(this, "email error", Toast.LENGTH_SHORT).show()
+        emailNameInput?.error = getString(R.string.email_error_main_activity)
     }
 
-    override fun showPasswordError() {
-        TODO("Not yet implemented")
+    override fun showPasswordEmptyError() {
+        passwordInput?.error = getString(R.string.password_error_empty_main_activity)
     }
 
-    override fun showSuccess() {
-        TODO("Not yet implemented")
+    override fun showPasswordMinError() {
+        passwordInput?.error = getString(R.string.password_error_min_six_main_activity)
+    }
+
+    override fun showSuccessRegistration() {
+        btnRegistration?.isVisible = true
+        btnLogin?.isVisible = true
+        Toast.makeText(this, "Успешная регистрация", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showSuccessLogin() {
+        btnRegistration?.isVisible = true
+        btnLogin?.isVisible = true
+        Toast.makeText(this, "Успешный вход", Toast.LENGTH_SHORT).show()
     }
 }

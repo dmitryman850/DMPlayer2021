@@ -6,6 +6,10 @@
     <string name="hint_enter_password_main_activity">Введите ваш пароль</string>
     <string name="btn_registration_main_activity">Регистрация</string>
     <string name="btn_login_main_activity">Войти</string>
+    <string name="email_error_main_activity">Неверный email</string>
+    <string name="password_error_empty_main_activity">Введите пароль</string>
+    <string name="password_error_min_six_main_activity">Пароль должен состоять минимум из 6 символов</string>
+    <string name="password_error_main_activity">Неверный пароль</string>
     <!-- MainActivity screen -->
 
     <!-- BottomNavigation screen -->

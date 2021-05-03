@@ -6,7 +6,11 @@ interface MainView {
 
     fun showEmailError()
 
-    fun showPasswordError()
+    fun showPasswordEmptyError()
 
-    fun showSuccess()
+    fun showPasswordMinError()
+
+    fun showSuccessRegistration()
+
+    fun showSuccessLogin()
 }
