@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class CurrentTrackFragment: Fragment() {
+class FavoriteTracksFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_current_track, null)
+        return inflater.inflate(R.layout.fragment_favorite_tracks, null)
     }
 
     companion object {
-        fun newInstance(): CurrentTrackFragment = CurrentTrackFragment()
+        fun newInstance(): FavoriteTracksFragment = FavoriteTracksFragment()
     }
 }

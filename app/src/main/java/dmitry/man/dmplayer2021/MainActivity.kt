@@ -1,5 +1,6 @@
 package dmitry.man.dmplayer2021
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -97,5 +98,9 @@ class MainActivity : AppCompatActivity(), MainView {
         btnRegistration?.isVisible = true
         btnLogin?.isVisible = true
         Toast.makeText(this, "Успешный вход", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun openPlayerActivity() {
+        startActivity(Intent(this, PlayerActivity::class.java))
     }
 }

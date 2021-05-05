@@ -33,7 +33,10 @@ class MainPresenter(
                 is LoginResult.Error.EmailName -> mainView?.showEmailError()
                 is LoginResult.Error.PasswordError.Empty -> mainView?.showPasswordEmptyError()
                 is LoginResult.Error.PasswordError.MinSix -> mainView?.showPasswordMinError()
-                is LoginResult.Success -> mainView?.showSuccessLogin()
+                is LoginResult.Success -> {
+                    mainView?.showSuccessLogin()
+                    mainView?.openPlayerActivity()
+                }
             }
             mainView?.setLoading(loading = false)
         }
@@ -49,7 +52,10 @@ class MainPresenter(
                 is RegistrationResult.Error.EmailName -> mainView?.showEmailError()
                 is RegistrationResult.Error.PasswordError.Empty -> mainView?.showPasswordEmptyError()
                 is RegistrationResult.Error.PasswordError.MinSix -> mainView?.showPasswordMinError()
-                is RegistrationResult.Success -> mainView?.showSuccessRegistration()
+                is RegistrationResult.Success -> {
+                    mainView?.showSuccessRegistration()
+                    mainView?.openPlayerActivity()
+                }
             }
             mainView?.setLoading(loading = false)
         }

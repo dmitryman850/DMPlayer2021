@@ -13,4 +13,6 @@ interface MainView {
     fun showSuccessRegistration()
 
     fun showSuccessLogin()
+
+    fun openPlayerActivity()
 }
